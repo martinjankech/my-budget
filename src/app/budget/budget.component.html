@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Value</th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of items">
+    <th scope="row">1</th>
+    <td>Bike</td>
+    <td>500</td>
+    <td></td>
+  </tr>
+  <tr *ngIf="!items || items.length===0">
+    <td colspan="4">
+      No data
+    </td>
+  </tr>
+</table>
