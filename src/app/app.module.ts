@@ -8,6 +8,7 @@ import { CalcComponent } from './calc/calc.component';
 import { HomeComponent } from './home/home.component';
 import { TodoComponent } from './todo/todo.component';
 import { Error404Component } from './error404/error404.component';
+import {LocalStorageModule} from 'angular-2-local-storage';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,11 @@ import { Error404Component } from './error404/error404.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    LocalStorageModule.forRoot({
+      prefix: 'my-app',
+      storageType: 'localStorage'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

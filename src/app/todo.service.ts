@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import {TodoItem} from './todo-item';
+import {LocalStorageService} from 'angular-2-local-storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
   private items:TodoItem[];
-
-  constructor() {  this.items=[
-    new TodoItem('Learn Angular'),
-    new TodoItem('Learn Bootstrap ')];}
+private  key='todo-items';
+  constructor(private  localStorageService:LocalStorageService)
+  {  this.items=localStorageService.get(this.key) || []}
 
   getItems():TodoItem[]{
     return this.items;
@@ -30,10 +30,12 @@ export class TodoService {
       newItem.push(value)
     })
     this.items=newItem;
+    this.localStorageService.set(this.key,newItem);
 
   }
   addNew(item:TodoItem){
 
     this.items.push(item);
+    this.localStorageService.set(this.key,this.items);
   }
 }
