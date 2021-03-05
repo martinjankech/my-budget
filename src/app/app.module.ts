@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,7 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { TodoComponent } from './todo/todo.component';
 import { Error404Component } from './error404/error404.component';
 import {LocalStorageModule} from 'angular-2-local-storage';
-
+import {registerLocaleData} from '@angular/common';
+import localeSk from '@angular/common/locales/sk';
+registerLocaleData(localeSk)
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import {LocalStorageModule} from 'angular-2-local-storage';
       storageType: 'localStorage'
     })
   ],
-  providers: [],
+  providers: [
+    {provide:LOCALE_ID, useValue:'sk'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

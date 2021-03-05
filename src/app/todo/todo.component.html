@@ -6,10 +6,11 @@
 <button (click)="removeCompleted()">Remove Completed</button>
 <ul>
 
-  <li *ngFor="let item of items"[class.completed]="item.done">
+  <li *ngFor="let item of items">
     <input type="checkbox" [(ngModel)]="item.done"
     (ngModelChange)="toggleItem(item)" >
-    {{item.text}}
+    <span [class.completed]="item.done"> {{item.text}}</span>
+    {{item.completed | date:'long'}}
   </li>
 </ul>
 

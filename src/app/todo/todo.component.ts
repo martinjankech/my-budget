@@ -45,6 +45,9 @@ return this.todoService.getRemaining();
   }
 
   toggleItem(item: TodoItem) {
+
+      item.completed=item.done ? new Date(): undefined
+
     this.todoService.toggleItem(item);
 
   }
