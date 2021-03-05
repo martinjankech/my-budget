@@ -11,6 +11,7 @@ import { Error404Component } from './error404/error404.component';
 import {LocalStorageModule} from 'angular-2-local-storage';
 import {registerLocaleData} from '@angular/common';
 import localeSk from '@angular/common/locales/sk';
+import { BudgetComponent } from './budget/budget.component';
 registerLocaleData(localeSk)
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ registerLocaleData(localeSk)
     CalcComponent,
     HomeComponent,
     TodoComponent,
-    Error404Component
+    Error404Component,
+    BudgetComponent
   ],
   imports: [
     BrowserModule,
