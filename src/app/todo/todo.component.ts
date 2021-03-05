@@ -44,4 +44,8 @@ return this.todoService.getRemaining();
 
   }
 
+  toggleItem(item: TodoItem) {
+    this.todoService.toggleItem(item);
+
+  }
 }

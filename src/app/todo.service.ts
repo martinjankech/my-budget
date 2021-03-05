@@ -38,4 +38,9 @@ private  key='todo-items';
     this.items.push(item);
     this.localStorageService.set(this.key,this.items);
   }
+
+  toggleItem(Item: TodoItem) {
+    this.localStorageService.set(this.key,this.items);
+
+  }
 }
