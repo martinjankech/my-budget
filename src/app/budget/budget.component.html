@@ -20,3 +20,9 @@
     </td>
   </tr>
 </table>
+<hr>
+
+<form (ngSubmit)="submit()">
+  <input name="name" type="text" [(ngModel)]="newItem.name">
+  <input name="value" type="number" [(ngModel)]="newItem.value">
+</form>
