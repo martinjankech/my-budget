@@ -1,28 +1,40 @@
-<table class="table">
-  <thead>
+<button class="btn btn-primary float-lg-right my-2" routerLink="/budget/new">New</button>
+<table class="table my-4">
+
+  <thead class="thead-dark">
   <tr>
-    <th scope="col">#</th>
     <th scope="col">Name</th>
     <th scope="col">Value</th>
-    <th scope="col"></th>
+    <th scope="col" class="icon-column"></th>
+    <th scope="col" class="icon-column"></th>
   </tr>
   </thead>
+
   <tbody>
-  <tr *ngFor="let item of items">
-    <th scope="row">1</th>
-    <td>Bike</td>
-    <td>500</td>
-    <td></td>
+
+  <tr *ngFor="let item of items$ | async">
+    <td>{{item.name}}</td>
+    <td>{{item.value | number:'1.2'}}</td>
+    <td>
+      <a><i class="fa fa-edit"></i></a>
+    </td>
+    <td>
+      <a (click)="deleteItem(item)">
+        <i class="fa fa-trash"></i>
+      </a>
+    </td>
   </tr>
-  <tr *ngIf="!items || items.length===0">
+
+  <tr *ngIf="(items$ | async).length === 0">
     <td colspan="4">
       No data
     </td>
   </tr>
+
+  </tbody>
 </table>
+
+
 <hr>
 
-<form (ngSubmit)="submit()">
-  <input name="name" type="text" [(ngModel)]="newItem.name">
-  <input name="value" type="number" [(ngModel)]="newItem.value">
-</form>
+

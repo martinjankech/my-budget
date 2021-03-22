@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MathService} from '../math.service';
+import {MathService} from './math.service';
 
 @Component({
   selector: 'app-calc',
