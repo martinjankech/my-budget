@@ -10,7 +10,7 @@ export class BudgetItemsService {
 
   private key = 'budget-items';
 
-  private items: BudgetItem[]=[];
+  private items: BudgetItem[]
 
   private itemsSubject: BehaviorSubject<BudgetItem[]>;
 
@@ -39,5 +39,10 @@ export class BudgetItemsService {
       this.localStorageService.set(this.key, this.items);
       this.itemsSubject.next(this.items);
     }
+  }
+
+  getItem(itemId: string):BudgetItem {
+    return this.items[itemId];
+
   }
 }

@@ -13,6 +13,7 @@ import {registerLocaleData} from '@angular/common';
 import localeSk from '@angular/common/locales/sk';
 import { BudgetComponent } from './budget/budget.component';
 import { NewItemComponent } from './budget/new-item/new-item.component';
+import { ItemDetailComponent } from './budget/item-detail/item-detail.component';
 registerLocaleData(localeSk)
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ registerLocaleData(localeSk)
     TodoComponent,
     Error404Component,
     BudgetComponent,
-    NewItemComponent
+    NewItemComponent,
+    ItemDetailComponent
   ],
   imports: [
     BrowserModule,

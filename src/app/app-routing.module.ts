@@ -6,6 +6,7 @@ import {Error404Component} from './error404/error404.component';
 import {CalcComponent} from './calc/calc.component';
 import {BudgetComponent} from './budget/budget.component';
 import {NewItemComponent} from './budget/new-item/new-item.component';
+import {ItemDetailComponent} from './budget/item-detail/item-detail.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'calc', component: CalcComponent},
   {path: 'budget', component: BudgetComponent},
   {path: 'budget/new', component: NewItemComponent},
+  {path: 'budget/:id', component: ItemDetailComponent},
   {path:'', redirectTo: '/home', pathMatch:'full'},
   {path:'**', component: Error404Component},
 
