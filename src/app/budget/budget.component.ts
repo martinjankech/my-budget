@@ -23,6 +23,6 @@ export class BudgetComponent implements OnInit {
 
 
   deleteItem(item: BudgetItem) {
-    this.budgetItemsService.delete(item);
+    this.budgetItemsService.delete(item).then(value => {});
   }
 }

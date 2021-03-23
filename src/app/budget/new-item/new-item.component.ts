@@ -15,8 +15,12 @@ export class NewItemComponent implements OnInit {
   private router: Router) { }
 
   submit():void {
-    this.budgetItemsService.add(this.newItem);
-    this.router.navigate(['/budget'])
+    this.budgetItemsService.add(this.newItem).then(value =>
+    {this.router.navigate(['/budget']).then(value1 => {console.log(value)})})
+
+
+
+
 
   }
   ngOnInit(): void {

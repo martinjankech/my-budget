@@ -13,18 +13,22 @@ export class EditItemComponent implements OnInit {
   private itemId: string;
    item: BudgetItem;
 
+
   constructor(  private route: ActivatedRoute,
                 private budgetItemService: BudgetItemsService,
                 private router:Router) {
     this.itemId = this.route.snapshot.paramMap.get("id");
-    this.item=budgetItemService.getItem(this.itemId);
+budgetItemService.getItem(this.itemId).subscribe(value =>
+{
+  this.item=value;
+})
   }
 
   ngOnInit(): void {
   }
 
   submit() {
-    this.budgetItemService.edit(this.itemId, this.item).subscribe(value => {
+    this.budgetItemService.edit(this.itemId, this.item).then(value => {
 
       this.router.navigate(['/budget',this.itemId]);
 

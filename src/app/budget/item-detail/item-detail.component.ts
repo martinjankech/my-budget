@@ -17,7 +17,9 @@ export class ItemDetailComponent implements OnInit {
 
   constructor(private route:ActivatedRoute,private budgetItemService: BudgetItemsService) {
     this.itemId=this.route.snapshot.paramMap.get("id");
-this.item=budgetItemService.getItem(this.itemId);
+budgetItemService.getItem(this.itemId).subscribe(value =>
+{this.item=value;}
+);
 
   }
 

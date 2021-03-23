@@ -1,58 +1,42 @@
 import {Injectable} from '@angular/core';
-import {LocalStorageService} from 'angular-2-local-storage';
 import {BudgetItem} from './budget-item';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {AngularFirestore} from '@angular/fire/firestore';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BudgetItemsService {
 
-  private key = 'budget-items';
 
-  private items: BudgetItem[]
 
-  private itemsSubject: BehaviorSubject<BudgetItem[]>;
+  constructor(private firestore:AngularFirestore) {
 
-  constructor(private localStorageService: LocalStorageService) {
-    this.items = localStorageService.get(this.key) || [];
-    this.itemsSubject = new BehaviorSubject(this.items);
+
   }
+  private readonly path="items"
 
   getItems() {
-    return this.itemsSubject.asObservable();
+    return this.firestore.collection<BudgetItem>(this.path).valueChanges({idField:'id'});
   }
 
   add(newItem: BudgetItem) {
-    this.items.push(newItem);
-    this.localStorageService.set(this.key, this.items);
-    this.itemsSubject.next(this.items);
+    return this.firestore.collection<BudgetItem>(this.path).add(newItem);
   }
 
   delete(item: BudgetItem) {
-    let index = this.items.findIndex(value => {
-      return value === item;
-    });
-
-    if (index >= 0) {
-      this.items.splice(index, 1);
-      this.localStorageService.set(this.key, this.items);
-      this.itemsSubject.next(this.items);
+    return this.firestore.collection<BudgetItem>(this.path).doc(item.id).delete();
     }
+
+
+  getItem(itemId: string): Observable <BudgetItem> {
+  return this.firestore.collection<BudgetItem>(this.path).doc(itemId).valueChanges({idField:'id'});
   }
 
-  getItem(itemId: string):BudgetItem {
-    return this.items[itemId];
+  edit(itemId: string, item: BudgetItem) :Promise<void> {
+    return this.firestore.collection<BudgetItem>(this.path).doc(itemId).set(item);
 
-  }
 
-  edit(itemId: string, item: BudgetItem) {
-    return new Observable(subscriber => {
-      this.items[itemId]=item;
-      this.localStorageService.set(this.key,this.items)
-    subscriber.next();
-    subscriber.complete();
-    })
 
   }
 }

@@ -15,6 +15,9 @@ import { BudgetComponent } from './budget/budget.component';
 import { NewItemComponent } from './budget/new-item/new-item.component';
 import { ItemDetailComponent } from './budget/item-detail/item-detail.component';
 import { EditItemComponent } from './budget/edit-item/edit-item.component';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 registerLocaleData(localeSk)
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ registerLocaleData(localeSk)
     LocalStorageModule.forRoot({
       prefix: 'my-app',
       storageType: 'localStorage'
-    })
+    }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [
     {provide:LOCALE_ID, useValue:'sk'}
