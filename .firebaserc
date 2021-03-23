@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "mybudget-64d62"
+  },
+  "targets": {
+    "mybudget-64d62": {
+      "hosting": {
+        "my-budget-opakujem": [
+          "mybudget-64d62"
+        ]
+      }
+    }
   }
 }
