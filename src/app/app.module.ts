@@ -14,6 +14,7 @@ import localeSk from '@angular/common/locales/sk';
 import { BudgetComponent } from './budget/budget.component';
 import { NewItemComponent } from './budget/new-item/new-item.component';
 import { ItemDetailComponent } from './budget/item-detail/item-detail.component';
+import { EditItemComponent } from './budget/edit-item/edit-item.component';
 registerLocaleData(localeSk)
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ registerLocaleData(localeSk)
     Error404Component,
     BudgetComponent,
     NewItemComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    EditItemComponent
   ],
   imports: [
     BrowserModule,

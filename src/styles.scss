@@ -10,3 +10,7 @@ a
 a:hover i{color: blue}
 
 a:not([href]):not(tabindex){color: #007bff}
+
+body{
+  margin: 100px 0;
+}

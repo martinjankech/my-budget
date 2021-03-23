@@ -16,7 +16,7 @@
     <td><a [routerLink]="['/budget', id]">{{item.name}}</a></td>
     <td>{{item.value | number:'1.2'}}</td>
     <td>
-      <a><i class="fa fa-edit"></i></a>
+      <a [routerLink]="['/budget', id,'edit']"><i class="fa fa-edit"></i></a>
     </td>
     <td>
       <a (click)="deleteItem(item)">

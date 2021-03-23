@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {LocalStorageService} from 'angular-2-local-storage';
 import {BudgetItem} from './budget-item';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +43,16 @@ export class BudgetItemsService {
 
   getItem(itemId: string):BudgetItem {
     return this.items[itemId];
+
+  }
+
+  edit(itemId: string, item: BudgetItem) {
+    return new Observable(subscriber => {
+      this.items[itemId]=item;
+      this.localStorageService.set(this.key,this.items)
+    subscriber.next();
+    subscriber.complete();
+    })
 
   }
 }

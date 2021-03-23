@@ -7,6 +7,7 @@ import {CalcComponent} from './calc/calc.component';
 import {BudgetComponent} from './budget/budget.component';
 import {NewItemComponent} from './budget/new-item/new-item.component';
 import {ItemDetailComponent} from './budget/item-detail/item-detail.component';
+import {EditItemComponent} from './budget/edit-item/edit-item.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'budget', component: BudgetComponent},
   {path: 'budget/new', component: NewItemComponent},
   {path: 'budget/:id', component: ItemDetailComponent},
+  {path: 'budget/:id/edit', component: EditItemComponent},
   {path:'', redirectTo: '/home', pathMatch:'full'},
   {path:'**', component: Error404Component},
 
