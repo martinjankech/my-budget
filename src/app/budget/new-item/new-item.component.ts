@@ -14,8 +14,8 @@ export class NewItemComponent implements OnInit {
   constructor(private budgetItemsService: BudgetItemsService,
   private router: Router) { }
 
-  submit():void {
-    this.budgetItemsService.add(this.newItem).then(value =>
+  submit($event):void {
+    this.budgetItemsService.add($event).then(value =>
     {this.router.navigate(['/budget']).then(value1 => {console.log(value)})})
 
 

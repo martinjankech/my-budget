@@ -27,8 +27,8 @@ budgetItemService.getItem(this.itemId).subscribe(value =>
   ngOnInit(): void {
   }
 
-  submit() {
-    this.budgetItemService.edit(this.itemId, this.item).then(value => {
+  submit($event:BudgetItem) {
+    this.budgetItemService.edit(this.itemId, $event).then(value => {
 
       this.router.navigate(['/budget',this.itemId]);
 

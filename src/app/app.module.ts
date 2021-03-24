@@ -18,6 +18,7 @@ import { EditItemComponent } from './budget/edit-item/edit-item.component';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { BudgetItemFormComponent } from './budget/budget-item-form/budget-item-form.component';
 registerLocaleData(localeSk)
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ registerLocaleData(localeSk)
     BudgetComponent,
     NewItemComponent,
     ItemDetailComponent,
-    EditItemComponent
+    EditItemComponent,
+    BudgetItemFormComponent
   ],
   imports: [
     BrowserModule,
