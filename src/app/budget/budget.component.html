@@ -14,7 +14,7 @@
 
   <tr *ngFor="let item of items$ | async;">
     <td><a [routerLink]="['/budget', item.id]">{{item.name}}</a></td>
-    <td>{{item.value | number:'1.2'}}</td>
+    <td>{{item.value | currency }}</td>
     <td>
       <a [routerLink]="['/budget', item.id,'edit']"><i class="fa fa-edit"></i></a>
     </td>
