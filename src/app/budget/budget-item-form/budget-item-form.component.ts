@@ -8,11 +8,13 @@ import {NgForm} from '@angular/forms';
   styles: [
   ]
 })
-export class BudgetItemFormComponent {
+export class BudgetItemFormComponent implements OnInit{
  @Input() item: BudgetItem;
  @Output() changed=new EventEmitter<BudgetItem>();
+ buttonVisible: boolean;
 
-
+ngOnInit() {this.buttonVisible=this.changed.observers.length > 0;
+}
 
   submit(formElement:NgForm) {
     if(formElement.invalid)

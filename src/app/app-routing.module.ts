@@ -14,7 +14,6 @@ const routes: Routes = [
   {path: 'todo', component:TodoComponent},
   {path: 'calc', component: CalcComponent},
   {path: 'budget', component: BudgetComponent},
-  {path: 'budget/new', component: NewItemComponent},
   {path: 'budget/:id', component: ItemDetailComponent},
   {path: 'budget/:id/edit', component: EditItemComponent},
   {path:'', redirectTo: '/home', pathMatch:'full'},

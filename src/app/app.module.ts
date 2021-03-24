@@ -19,6 +19,7 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { BudgetItemFormComponent } from './budget/budget-item-form/budget-item-form.component';
+import {NgbModalModule, } from '@ng-bootstrap/ng-bootstrap';
 registerLocaleData(localeSk)
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ registerLocaleData(localeSk)
       storageType: 'localStorage'
     }),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    NgbModalModule
   ],
   providers: [
     {provide:LOCALE_ID, useValue:'sk'},

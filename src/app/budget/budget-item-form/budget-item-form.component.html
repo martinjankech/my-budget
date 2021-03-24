@@ -13,7 +13,7 @@
              [class.is-valid]="formElement.form.controls.value?.valid">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" *ngIf="buttonVisible">Submit</button>
 
 </form>
 

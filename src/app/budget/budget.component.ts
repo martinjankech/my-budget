@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {BudgetItem} from './budget-item';
 import {BudgetItemsService} from './budget-items.service';
 import {Observable} from 'rxjs';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NewItemComponent} from './new-item/new-item.component';
 
 @Component({
   selector: 'app-budget',
@@ -13,7 +15,8 @@ export class BudgetComponent implements OnInit {
 
 
 
-  constructor(private budgetItemsService: BudgetItemsService) {
+  constructor(private budgetItemsService: BudgetItemsService,
+  private modalService: NgbModal) {
     this.items$ = budgetItemsService.getItems()
   }
 
@@ -24,5 +27,12 @@ export class BudgetComponent implements OnInit {
 
   deleteItem(item: BudgetItem) {
     this.budgetItemsService.delete(item).then(value => {});
+  }
+
+  newBudget() {
+    const modalRef = this.modalService.open(NewItemComponent);
+    modalRef.result.then(value => {console.log(value)}).catch(reason => {console.log(reason)})
+
+
   }
 }
