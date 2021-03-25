@@ -1,6 +1,10 @@
+import {NgbDatePipe} from '../ngb-date.pipe';
+import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+
 export interface BudgetItem {
-  id?:string;
+  id?:string,
   name:string,
-  value:number
+  value:number,
+  date:NgbDateStruct;
 
 }

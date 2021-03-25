@@ -8,19 +8,27 @@ import {BudgetComponent} from './budget/budget.component';
 import {NewItemComponent} from './budget/new-item/new-item.component';
 import {ItemDetailComponent} from './budget/item-detail/item-detail.component';
 import {EditItemComponent} from './budget/edit-item/edit-item.component';
+import {AngularFireAuthGuard, redirectUnauthorizedTo} from '@angular/fire/auth-guard';
+import {AuthorizedGuard} from './authorized-guard';
+
+
+
+const redirectUnauthorizedToHome = () => redirectUnauthorizedTo(['home']);
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path: 'todo', component:TodoComponent},
   {path: 'calc', component: CalcComponent},
-  {path: 'budget', component: BudgetComponent},
-  {path: 'budget/:id', component: ItemDetailComponent},
+  {
+    path: 'budget', component: BudgetComponent,
+    canActivate:[AuthorizedGuard]},
+  {path: 'budget/:id', component: ItemDetailComponent,canActivate:[AuthorizedGuard]},
   {path: 'budget/:id/edit', component: EditItemComponent},
   {path:'', redirectTo: '/home', pathMatch:'full'},
   {path:'**', component: Error404Component},
 
-
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

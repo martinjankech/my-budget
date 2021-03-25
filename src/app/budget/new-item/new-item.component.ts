@@ -12,10 +12,16 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class NewItemComponent implements OnInit {
   newItem = {} as BudgetItem;
-  constructor(private budgetItemsService: BudgetItemsService,
-  public activeModal: NgbActiveModal) { }
+  constructor(
+    private budgetItemsService: BudgetItemsService,
+    public activeModal: NgbActiveModal
+  )
+  {
+
+  }
 
   submit($event):void {
+
     this.budgetItemsService.add($event).then(value =>
     {this.activeModal.close($event)})}
 

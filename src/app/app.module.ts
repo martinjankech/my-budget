@@ -19,8 +19,11 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { BudgetItemFormComponent } from './budget/budget-item-form/budget-item-form.component';
-import {NgbModalModule, } from '@ng-bootstrap/ng-bootstrap';
+import {NgbDatepickerModule, NgbModalModule,} from '@ng-bootstrap/ng-bootstrap';
 import {AngularFireAuthModule} from '@angular/fire/auth';
+import { NgbDatePipe } from './ngb-date.pipe';
+import {AngularFireAuthGuard, AngularFireAuthGuardModule} from '@angular/fire/auth-guard';
+import {AuthorizedGuard} from './authorized-guard';
 registerLocaleData(localeSk)
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ registerLocaleData(localeSk)
     NewItemComponent,
     ItemDetailComponent,
     EditItemComponent,
-    BudgetItemFormComponent
+    BudgetItemFormComponent,
+    NgbDatePipe
   ],
   imports: [
     BrowserModule,
@@ -46,11 +50,14 @@ registerLocaleData(localeSk)
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    NgbModalModule
+    NgbModalModule,
+    AngularFireAuthGuardModule,
+    NgbDatepickerModule
   ],
   providers: [
     {provide:LOCALE_ID, useValue:'sk'},
-    {provide:DEFAULT_CURRENCY_CODE,useValue:'EUR'}
+    {provide:DEFAULT_CURRENCY_CODE,useValue:'EUR'},
+AuthorizedGuard
   ],
   bootstrap: [AppComponent]
 })
