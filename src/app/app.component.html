@@ -24,6 +24,19 @@
       </li>
 
     </ul>
+    <div class="my-2 my-lg-0 text-white" *ngIf="afAuth.user | async as user; else showLogin">
+      <span>{{user.displayName}}</span>
+      <button class="btn btn-danger ml-2 my-2 my-sm-0" type="submit"(click)="logout()" >Logout</button>
+
+    </div>
+    <ng-template #showLogin>
+      <form class="form-inline my-2 my-lg-0" >
+
+        <button class="btn btn-success my-2 my-sm-0" type="submit"(click)="login()" >Login</button>
+      </form>
+    </ng-template>
+
+
   </div>
   </div>
 

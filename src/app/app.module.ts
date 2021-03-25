@@ -20,6 +20,7 @@ import {environment} from '../environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { BudgetItemFormComponent } from './budget/budget-item-form/budget-item-form.component';
 import {NgbModalModule, } from '@ng-bootstrap/ng-bootstrap';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 registerLocaleData(localeSk)
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ registerLocaleData(localeSk)
     }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     NgbModalModule
   ],
   providers: [
