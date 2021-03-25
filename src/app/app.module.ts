@@ -26,6 +26,8 @@ import {AngularFireAuthGuard, AngularFireAuthGuardModule} from '@angular/fire/au
 import {AuthorizedGuard} from './authorized-guard';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MapLocationComponent } from './map-location/map-location.component';
+import {AgmCoreModule} from '@agm/core';
+
 
 
 registerLocaleData(localeSk)
@@ -57,12 +59,17 @@ registerLocaleData(localeSk)
       prefix: 'my-app',
       storageType: 'localStorage'
     }),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB9Tb6xIQifH7sByZCfmE8KWManTcO9DgA'
+    }),
+
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
     NgbModalModule,
     AngularFireAuthGuardModule,
     NgbDatepickerModule,
+
 
 
 
