@@ -24,6 +24,10 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import { NgbDatePipe } from './ngb-date.pipe';
 import {AngularFireAuthGuard, AngularFireAuthGuardModule} from '@angular/fire/auth-guard';
 import {AuthorizedGuard} from './authorized-guard';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { MapLocationComponent } from './map-location/map-location.component';
+
+
 registerLocaleData(localeSk)
 @NgModule({
   declarations: [
@@ -37,7 +41,13 @@ registerLocaleData(localeSk)
     ItemDetailComponent,
     EditItemComponent,
     BudgetItemFormComponent,
-    NgbDatePipe
+
+    NgbDatePipe,
+    NavBarComponent,
+    MapLocationComponent,
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -52,7 +62,11 @@ registerLocaleData(localeSk)
     AngularFireAuthModule,
     NgbModalModule,
     AngularFireAuthGuardModule,
-    NgbDatepickerModule
+    NgbDatepickerModule,
+
+
+
+
   ],
   providers: [
     {provide:LOCALE_ID, useValue:'sk'},

@@ -10,6 +10,9 @@ import {ItemDetailComponent} from './budget/item-detail/item-detail.component';
 import {EditItemComponent} from './budget/edit-item/edit-item.component';
 import {AngularFireAuthGuard, redirectUnauthorizedTo} from '@angular/fire/auth-guard';
 import {AuthorizedGuard} from './authorized-guard';
+import {NavBarComponent} from './nav-bar/nav-bar.component';
+import {MapLocationComponent} from './map-location/map-location.component';
+
 
 
 
@@ -19,11 +22,13 @@ const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path: 'todo', component:TodoComponent},
   {path: 'calc', component: CalcComponent},
+  {path: 'navbar', component: NavBarComponent},
   {
     path: 'budget', component: BudgetComponent,
     canActivate:[AuthorizedGuard]},
   {path: 'budget/:id', component: ItemDetailComponent,canActivate:[AuthorizedGuard]},
   {path: 'budget/:id/edit', component: EditItemComponent},
+  {path: 'map', component: MapLocationComponent},
   {path:'', redirectTo: '/home', pathMatch:'full'},
   {path:'**', component: Error404Component},
 
